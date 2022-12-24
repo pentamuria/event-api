@@ -1,0 +1,8 @@
+name: EventAPI
+version: '${project.version}'
+main: de.pentamuria.eventapi.eventapi.EventAPI
+api-version: 1.19
+authors: [ MikadoBlanket ]
+description: API for Pentamuria Events
+commands:
+  event:
