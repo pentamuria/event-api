@@ -20,6 +20,16 @@ public enum EventType {
             "§cKeins",
             "§7Momentan läuft hier §ckein Event",
             Material.BARRIER
+    ),
+    NO_HUNGER(
+      "§bSättigung",
+      "§7Während diesem Event §bhungerst §7du §cnicht!",
+      Material.BREAD
+    ),
+    NO_FALL(
+            "§fFreier Fall",
+            "§7Während diesem Event erhälst du §ckeinen Fallschaden",
+            Material.IRON_BOOTS
     )
     ;
 

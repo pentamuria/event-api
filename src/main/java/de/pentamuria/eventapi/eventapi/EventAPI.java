@@ -1,6 +1,7 @@
 package de.pentamuria.eventapi.eventapi;
 
 import de.pentamuria.eventapi.commands.COMMAND_event;
+import de.pentamuria.eventapi.events.EventListener;
 import de.pentamuria.eventapi.events.InventoryClickListener;
 import de.pentamuria.eventapi.manager.EventManager;
 import de.pentamuria.system.main.Main;
@@ -46,6 +47,8 @@ public final class EventAPI extends JavaPlugin {
     }
 
     private void loadEvents() {
+
         new InventoryClickListener(this);
+        new EventListener(this);
     }
 }
