@@ -26,8 +26,7 @@ public class EventManager {
 
                 startEvent();
                 for(Player all : Bukkit.getOnlinePlayers()) {
-                    plugin.pentamuria.playerScoreboard.getCustomScoreboard(all)
-                            .setSidebarScore(4, "§7↣ " + getEventType().getTitle());
+                    plugin.scoreboardAPI.getPlayerScoreboard().updateEvent(all, getEventType().getTitle());
                 }
 
             }
@@ -43,8 +42,7 @@ public class EventManager {
         Bukkit.getServer().broadcastMessage(plugin.pr + eventType.description);
         Bukkit.getServer().broadcastMessage("§7---------------------------------------------------");
         for(Player all : Bukkit.getOnlinePlayers()) {
-            plugin.pentamuria.playerScoreboard.getCustomScoreboard(all)
-                    .setSidebarScore(4, "§7↣ " + getEventType().getTitle());
+            plugin.scoreboardAPI.getPlayerScoreboard().updateEvent(all, getEventType().getTitle());
         }
     }
 

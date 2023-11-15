@@ -4,7 +4,7 @@ import de.pentamuria.eventapi.commands.COMMAND_event;
 import de.pentamuria.eventapi.events.EventListener;
 import de.pentamuria.eventapi.events.InventoryClickListener;
 import de.pentamuria.eventapi.manager.EventManager;
-import de.pentamuria.system.main.Main;
+import de.pentamuria.scoreboard.pentamuriascoreboardapi.PentamuriaScoreboardAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,7 +14,7 @@ public final class EventAPI extends JavaPlugin {
     public String pr = "§bEvent §8- §7";
 
     public EventManager eventManager;
-    public Main pentamuria;
+    public PentamuriaScoreboardAPI scoreboardAPI;
 
     @Override
     public void onEnable() {
@@ -23,16 +23,18 @@ public final class EventAPI extends JavaPlugin {
         loadEvents();
         eventManager = new EventManager(this);
         Bukkit.getConsoleSender().sendMessage("§7-----------§8[§bEventAPI§8]§7-----------");
-        Bukkit.getConsoleSender().sendMessage(prefix + "Das Plugin wurde erfolgreich §agestartet");
-        if(Bukkit.getServer().getPluginManager().getPlugin("Main")!=null) {
-            pentamuria = (Main) Bukkit.getServer().getPluginManager().getPlugin("Main");
-            Bukkit.getConsoleSender().sendMessage(pr + "Verbindung zu §5Pentamuria §7wurde §ainitialisiert");
+        if(Bukkit.getServer().getPluginManager().getPlugin("PentamuriaScoreboardAPI")!=null) {
+            scoreboardAPI = (PentamuriaScoreboardAPI) Bukkit.getServer().getPluginManager().getPlugin("PentamuriaScoreboardAPI");
+            Bukkit.getConsoleSender().sendMessage(pr + "Verbindung zur §bPentamuriaScoreboardAPI §7wurde §ainitialisiert");
         } else {
-            Bukkit.getConsoleSender().sendMessage(pr + "Verbindung zu §5Pentamuria §ist §4fehlgeschlagen");
-            Bukkit.getConsoleSender().sendMessage(pr + "§cBitte sofort §5Pentamuria §chinzufügen");
+            Bukkit.getConsoleSender().sendMessage(pr + "Verbindung zur §bPentamuriaScoreboardAPI §ist §4fehlgeschlagen");
+            Bukkit.getConsoleSender().sendMessage(pr + "§cBitte sofort die §bPentamuriaScoreboardAPI §chinzufügen");
         }
-        Bukkit.getConsoleSender().sendMessage("§7---------------------------------");
+
         eventManager.start();
+
+        Bukkit.getConsoleSender().sendMessage(prefix + "Das Plugin wurde erfolgreich §agestartet");
+        Bukkit.getConsoleSender().sendMessage("§7---------------------------------");
     }
 
     @Override
