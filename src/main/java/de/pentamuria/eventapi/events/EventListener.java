@@ -12,7 +12,9 @@ public class EventListener implements Listener {
     private final EventAPI plugin;
 
     public EventListener(EventAPI eventAPI) {
+
         this.plugin = eventAPI;
+        this.plugin.getServer().getPluginManager().registerEvents(this, eventAPI);
     }
 
     @EventHandler
